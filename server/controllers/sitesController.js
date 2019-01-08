@@ -11,8 +11,9 @@ exports.setSite = async (req, res) => {
     });
 
     await sites.save();
-    console.log(`Site saved! - ${req.body.name}`);
-    res.send(true);
+    const msg = `Site saved! - ${req.body.name}`;
+    console.log(msg);
+    res.send(msg);
   } catch (error) {
     console.log(`ERROR: \n${error.stack}`);
   }

@@ -23,6 +23,20 @@
   color: #61dafb;
 }
 
+.App-form div.inputs{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.App-form div.inputs *:not(:last-child){
+  margin-right: 5px;
+}
+
+.App .all-sites {
+  width: 100%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
