@@ -58,8 +58,4 @@ typings/
 .env
 
 # next.js build output
-<<<<<<< HEAD
 .next
-=======
-.next
->>>>>>> update global gitignore

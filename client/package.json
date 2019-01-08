@@ -1,5 +1,5 @@
 {
-  "name": "example-nodejs-react",
+  "name": "example-nodejs-react-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
