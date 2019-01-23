@@ -25,6 +25,7 @@ exports.getAllSites = async (req, res) => {
       .find()
       .sort({ created: 'desc' });
 
+    console.log(`\tGet All sites:: ${sites.length}`);
     res.send(sites);
   } catch (error) {
     console.log(`ERROR: \n${error.stack}`);
