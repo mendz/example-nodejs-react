@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import TokenProvider from './providers/TokenProviders';
 import LoginButton from './components/LoginButton';
 import TokenDisplay from './components/TokenDisplay';
+import InputsDisplay from './components/InputsDisplay';
+import SitesTable from './components/SitesTable';
 
 import logo from './logo.svg';
 import './App.css';
@@ -62,15 +64,13 @@ class App extends Component {
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
           </header>
-          <p>{this.state.response}</p>
+
+          <InputsDisplay
+            name={this.state.formSiteName}
+            url={this.state.formSiteURL}
+            isStar={this.state.formSiteStarted} />
+
           <form onSubmit={this.handleSubmit} className="App-form">
-            <p>
-              <strong>Name:</strong>{` "${this.state.formSiteName}"`}
-              <br />
-              <strong>URL:</strong>{` "${this.state.formSiteURL}"`}
-              <br />
-              <strong>Started:</strong>{` ${this.state.formSiteStarted ? '🌟' : '❌'}`}
-            </p>
             <div className="inputs">
               <input
                 type="text"
@@ -96,27 +96,11 @@ class App extends Component {
             </div>
             <button type="submit">Submit</button>
           </form>
+
           <hr />
-          <table className="all-sites">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Site</th>
-                <th>Stared</th>
-                <th>Created</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.sites.map(site => (
-                <tr key={site._id}>
-                  <td>{site.name}</td>
-                  <td>{site.url}</td>
-                  <td>{site.stared ? '🌟' : '❌'}</td>
-                  <td>{site.created}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+
+          <SitesTable sites={this.state.sites} />
+
           <hr />
 
           <div>
