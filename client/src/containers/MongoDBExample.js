@@ -3,13 +3,15 @@ import InputsDisplay from '../components/InputsDisplay';
 import SitesTable from '../components/SitesTable';
 
 import './style/mongoDbExample.css'
+import Loading from '../components/Loading';
 
 class MongoDBExample extends React.Component {
   state = {
     sites: [],
     formSiteName: '',
     formSiteURL: '',
-    formSiteStarted: false
+    formSiteStarted: false,
+    loading: true
   }
 
   componentDidMount() {
@@ -25,7 +27,7 @@ class MongoDBExample extends React.Component {
 
   setSites = () => {
     this.callApi()
-      .then(sites => this.setState({ sites }))
+      .then(sites => this.setState({ sites, loading: false }))
       .catch(err => console.log(err));
   }
 
@@ -89,7 +91,7 @@ class MongoDBExample extends React.Component {
 
         <hr />
 
-        <SitesTable sites={this.state.sites} />
+        {this.state.loading ? <Loading /> : <SitesTable sites={this.state.sites} />}
       </div>
     )
   }
