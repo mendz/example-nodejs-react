@@ -1,0 +1,9 @@
+div.MongoDBExample .MongoDBExample-form div.inputs{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+div.MongoDBExample .MongoDBExample-form div.inputs *:not(:last-child){
+  margin-right: 5px;
+}
