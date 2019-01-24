@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TokenContext = React.createContext();
+export const TokenContext = React.createContext();
 
 export const TokenConsumer = TokenContext.Consumer;
 

@@ -1,22 +1,18 @@
 import React from 'react';
-import { TokenConsumer } from '../providers/TokenProviders';
+import { TokenContext } from '../providers/TokenProviders';
 
-const LoginButton = () => {
+class LoginButton extends React.Component {
+  static contextType = TokenContext;
 
-  const getToken = async () => {
+  getToken = async () => {
     const token = await (await fetch('/login', {method: 'POST'})).text();
     return token;
   }
 
-  return (
-    <TokenConsumer>
-      {
-        ({ setToken }) => {
-          return <button onClick={async () => setToken(await getToken())}>Fetch Token</button>
-        }
-      }
-    </TokenConsumer>
-  )
+  render() {
+    const { setToken } = this.context;
+    return <button onClick={async () => setToken(await this.getToken())}>Fetch Token</button>
+  }
 }
 
 export default LoginButton;
